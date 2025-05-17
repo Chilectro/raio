@@ -8,8 +8,10 @@
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.2.0/dist/lite-youtube.css" />
-  <script type="module" src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.2.0/dist/lite-youtube.js">
-</script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.2.0/dist/lite-youtube.js"></script>
+  <!-- Swiper 8 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <style>
     :root{
       --accent:#ffab00;
@@ -33,7 +35,7 @@
     #pattern{
       position:absolute;inset:0;pointer-events:none;
       background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 10px,transparent 10px 20px);
-      background-size:200% 200%;animation:bgSlide 30s linear infinite;
+      background-size:200% 200%;animation:bgSlide 120s linear infinite;
     }
     @keyframes bgSlide{0%{background-position:0 0}100%{background-position:100% 100%}}
     #hero::after{content:"";position:absolute;inset:0;background:#000;opacity:.2;pointer-events:none;}
@@ -369,6 +371,170 @@
     </div>
   
   </div>
+  </section>
+  <!-- ░▒▓ CONTENIDO SINTÉTICO ▓▒░ -->
+<section id="unico" class="relative overflow-hidden bg-neutral-900 text-white py-24 lg:py-32">
+
+    <!-- spotlight radial -->
+    <div class="absolute inset-0 pointer-events-none blob-anim"></div>
+
+<style>
+@keyframes blobMove {
+  0%,100% { transform:translate(-20%,-10%) scale(1); }
+  50%     { transform:translate(15%,20%)  scale(1.25); }
+}
+@keyframes blobMove2 {
+  0%,100% { transform:translate(25%,-15%) scale(1.1); }
+  50%     { transform:translate(-10%,25%) scale(1.35); }
+}
+
+.blob-anim::before,
+.blob-anim::after{
+  content:'';
+  position:absolute;
+  width:65%;               /* puedes variar tamaño */
+  height:65%;
+  border-radius:50%;
+  filter:blur(90px);
+  background:radial-gradient(circle at center,
+            rgba(0,255,255,.12) 0%,
+            transparent 70%);
+}
+.blob-anim::before{ top:-30%; left:-25%; animation:blobMove 60s ease-in-out infinite; }
+.blob-anim::after { bottom:-35%; right:-20%; animation:blobMove2 70s ease-in-out infinite; }
+</style>
+  
+    <!-- logo sello -->
+    <img src="images/logo_white.png"
+         alt="Raio Studios"
+         class="absolute top-6 left-6 w-16 opacity-40 pointer-events-none select-none">
+  
+    <!-- CONTENIDO -->
+    <div class="max-w-7xl mx-auto px-6 space-y-16">
+  
+      <!-- Texto -->
+      <div class="max-w-3xl space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-snug">
+          Contenido&nbsp;<span class="text-[var(--accent)]">Sintético</span><br>
+          Voces con identidad &amp; multilenguaje
+        </h2>
+  
+        <p class="inline-block bg-neutral-800/80 px-4 py-2 rounded-lg text-sm font-medium shadow-md">
+          <span class="text-[var(--accent)] font-semibold">¡Tu nueva voz habla en más de 15&nbsp;idiomas!</span>
+        </p>
+  
+        <p>Voces adaptadas a tus campañas y espacios. Cada voz es tuya &mdash; grabaciones ilimitadas y libres de derechos.</p>
+  
+        <p>Creamos contenidos con IA listos para cualquier formato: desde frases aisladas hasta producciones completas.</p>
+  
+        <ul class="space-y-2 list-disc list-inside">
+          <li>Voces sintéticas a medida.</li>
+          <li>Creación rápida de locutores propios.</li>
+          <li>Propiedad total de voces y locuciones.</li>
+        </ul>
+  
+        <!-- Banderas -->
+        <div class="mt-6 flex flex-wrap gap-3">
+          <img src="https://flagcdn.com/32x24/es.png"  alt="Español"  title="Español"  class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/gb.png"  alt="Inglés"   title="Inglés"   class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/br.png"  alt="Portugués"title="Portugués" class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/cn.png"  alt="Chino"    title="Chino"    class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/ru.png"  alt="Ruso"     title="Ruso"     class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/it.png"  alt="Italiano" title="Italiano" class="w-8 h-8 rounded-full shadow"/>
+          <img src="https://flagcdn.com/32x24/fr.png"  alt="Francés"  title="Francés"  class="w-8 h-8 rounded-full shadow"/>
+        </div>
+      </div>
+  
+      <!-- Carrusel Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+  
+          <!-- Función helper: copia-pega para cada vídeo -->
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/aSMKvvnlSxc?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/oMrwlhNVtXU?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 2" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/bYX6xksWE3M?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 3" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/VafelsSj9ls?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/KtXmD6-P01c?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 5" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/xWpZwNxKpJ0?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 6" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/JHlAaOdwhjU?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 7" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+          <div class="swiper-slide">
+            <div class="relative w-full rounded-lg overflow-hidden shadow-lg" style="padding-top:56.25%;">
+              <iframe class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/loAZTCoRoFE?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
+                title="Demo 8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+  
+        </div><!-- /swiper-wrapper -->
+  
+        <!-- Paginación puntos -->
+        <div class="swiper-pagination !static mt-6"></div>
+      </div><!-- /swiper -->
+    </div><!-- /container -->
+  
+    <!-- Init Swiper -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        new Swiper('.mySwiper', {
+          slidesPerView: 1,
+          spaceBetween: 16,
+          pagination: { el: '.swiper-pagination', clickable:true },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            1024:{ slidesPerView: 3 }
+          }
+        });
+      });
+    </script>
   </section>
 <!-- ░▒▓ SCRIPTS ▓▒░ -->
 <script>
