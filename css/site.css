@@ -167,3 +167,22 @@ html{scroll-behavior:smooth}
   opacity:1;
   transform:scale(1.3);                 /* resalta el activo */
 }
+/* ===================================================
+   Swiper · corrige paginación en móvil
+   ( < 640 px =  40rem )
+==================================================== */
+@media (max-width:639px){
+  /* reserva sitio */
+  .swiper{
+    padding-bottom:2.5rem;      /* ≈40 px bajo el vídeo */
+  }
+
+  /* vuelve a ser absolute pero fuera del frame */
+  .swiper-pagination{
+    position:absolute !important;
+    bottom:0;                   /* pega al padding que acabas de crear */
+    left:0;
+    width:100%;
+    margin-top:0;
+  }
+}
