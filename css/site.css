@@ -1,0 +1,149 @@
+css :root{ --grad-1:#ff6a00; --grad-2:#ffcd00; }
+/* ===================================================
+   Fuentes
+==================================================== */
+@font-face{font-family:"Monument";src:url("../fonts/Monument-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"OpenSauce";src:url("../fonts/OpenSauceSans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"OpenSauce";src:url("../fonts/OpenSauceSans-Semibold.woff2") format("woff2");font-weight:600;font-display:swap}
+/* ---------- variables de color para el degradado ---------- */
+/* ===================================================
+   Variables globales  (colócalas solo UNA vez)
+==================================================== */
+:root{
+  --grad-1:#ff6a00;   /* naranja (fondo hero)  */
+  --grad-2:#ffcd00;   /* amarillo (fondo hero) */
+  --accent:#ffab00;   /* amarillo botones/texto */
+}
+
+/* ===================================================
+   Utilidades sin @apply
+==================================================== */
+.section-dark{
+  position:relative;
+  overflow:hidden;
+  background:#1a1a1a;   /* #111-#1a */
+  color:#fff;
+  padding:6rem 0;
+}
+.section-black{
+  position:relative;
+  overflow:hidden;
+  background:#0f0f0f;   /* neutral-950 */
+  color:#fff;
+  padding:6rem 0;
+}
+
+/* ---------- botón principal ---------- */
+.btn-primary{
+  display:inline-block;
+  padding:0.75rem 2rem;       /* px-8 py-3 */
+  background:var(--accent);
+  color:#000;
+  font-weight:600;
+  border-radius:0.5rem;       /* rounded-lg */
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:transform .2s;
+}
+.btn-primary:hover{transform:scale(1.05)}
+
+/* ---------- título dentro de las cards ---------- */
+.card-title{
+  font-family:"Monument",system-ui,sans-serif;
+  font-size:1.5rem;           /* text-2xl / sm:text-3xl queda gestionado por los breakpoints de Tailwind */
+  line-height:1.3;
+  font-weight:700;
+}
+
+/* ---------- banderas, badges, etc. ---------- */
+.flag   {width:2rem;height:2rem;border-radius:9999px;box-shadow:0 0 0 1px #0003;overflow:hidden}
+.badge  {display:inline-block;background:rgba(38,38,38,.8);padding:0.25rem 1rem;border-radius:0.5rem;font-size:.875rem;font-weight:500;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+
+/* ---------- footer links ---------- */
+.footer-link:hover{color:#fff}
+
+/* ===================================================
+   Ecualizador: contenedor
+==================================================== */
+#eqWrap{
+  display:flex;
+  gap:8px;
+  z-index:5;
+}
+/* ===================================================
+   Utilidades globales
+==================================================== */
+html{scroll-behavior:smooth}
+.section-dark{position:relative;overflow:hidden;background:#1a1a1a;color:#fff;padding:6rem 0}
+.section-black{@apply section-dark bg-neutral-950}
+.btn-primary{@apply inline-block px-8 py-3 bg-accent text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition}
+.card{background:rgba(38,38,38,.6);backdrop-filter:blur(12px);border-radius:1rem;padding:1.5rem;box-shadow:0 8px 24px rgba(0,0,0,.4);border:1px solid rgba(120,120,120,.4)}
+.card-title{@apply text-2xl sm:text-3xl font-display font-bold}
+.ratio-16by9{position:relative;width:100%;padding-top:56.25%}
+.ratio-16by9 iframe{position:absolute;inset:0;width:100%;height:100%}
+.seal-logo{position:absolute;top:1.5rem;left:1.5rem;width:4rem;opacity:.4;pointer-events:none}
+.flag{@apply w-8 h-8 rounded-full shadow}
+.badge{@apply inline-block bg-neutral-800/80 px-4 py-2 rounded-lg text-sm font-medium shadow-md}
+.icon-24{width:1.5rem;height:1.5rem}
+
+/* Logo “latido” ----------------------------------------------------------- */
+@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.logo-breath{animation:breath 4s ease-in-out infinite}
+
+/* Hero -------------------------------------------------------------------- */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--grad-1),var(--grad-2)),url('../images/hero-bg-clean.png') center/cover no-repeat;background-blend-mode:multiply}
+#pattern{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 10px,transparent 10px 20px);background-size:200% 200%;animation:bgSlide 120s linear infinite;pointer-events:none}
+@keyframes bgSlide{0%{background-position:0 0}100%{background-position:100% 100%}}
+.wave{position:absolute;bottom:24%;left:0;width:100%;height:140px;filter:blur(2px) brightness(1.8) opacity(.6);pointer-events:none}
+.wave::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,var(--accent) 0%,transparent 70%);mix-blend-mode:screen;animation:pulse 6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scaleX(.8)}50%{transform:scaleX(1.05)}}
+
+/* Equalizador barras ------------------------------------------------------- */
+.bar{width:8px;height:110px;background:#fff;opacity:.9;border-radius:2px;transform-origin:bottom;animation:eqBar 1.4s ease-in-out infinite}
+@keyframes eqBar{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+
+/* Sub-menú ----------------------------------------------------------------- */
+.submenu{position:absolute;left:0;top:100%;margin-top:0;width:14rem;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);border-radius:.5rem;box-shadow:0 8px 24px rgba(0,0,0,.4);overflow:hidden;opacity:0;visibility:hidden;transition:opacity .2s}
+.group:hover>.submenu{opacity:1;visibility:visible}
+.submenu a{display:block;padding:.5rem 1rem;width:100%;font-size:.875rem}
+.submenu a:hover{background:rgba(255,171,0,.15)}
+
+/* Caret -------------------------------------------------------------------- */
+.caret::before,.caret::after{content:'»';color:var(--accent);font-weight:700;transition:opacity .2s}
+.caret::before{opacity:.5}.caret::after{margin-left:-2px}
+.what-link:hover .caret::before{opacity:1}
+
+/* Grid & blobs deco -------------------------------------------------------- */
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.blob{position:absolute;border-radius:50%;opacity:.1;filter:blur(80px)}
+.blob-top{top:-8rem;left:-10rem;width:24rem;height:24rem;background:var(--accent)}
+.blob-bot{bottom:-10rem;right:-12rem;width:32rem;height:32rem;background:#22d3ee}
+
+/* Diagonales radio --------------------------------------------------------- */
+.diag-bg{position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.05) 10px 20px);animation:diagonals 60s linear infinite}
+@keyframes diagonals{from{background-position:0 0}to{background-position:200px 200px}}
+
+/* Blob anim synth ---------------------------------------------------------- */
+@keyframes blobMove{0%,100%{transform:translate(-20%,-10%) scale(1)}50%{transform:translate(15%,20%) scale(1.25)}}
+@keyframes blobMove2{0%,100%{transform:translate(25%,-15%) scale(1.1)}50%{transform:translate(-10%,25%) scale(1.35)}}
+.blob-anim::before,.blob-anim::after{content:'';position:absolute;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(0,255,255,.12) 0%,transparent 70%)}
+.blob-anim::before{top:-30%;left:-25%;width:65%;height:65%;animation:blobMove 60s ease-in-out infinite}
+.blob-anim::after {bottom:-35%;right:-20%;width:65%;height:65%;animation:blobMove2 70s ease-in-out infinite}
+
+/* Ruido --------------------------------------------------------------- */
+.noise-bg{position:absolute;inset:0;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23000%22/><circle cx=%229%22 cy=%2211%22 r=%221%22 fill=%22%23ffffff0d%22/></svg>');opacity:.08;pointer-events:none}
+
+/* Formulario ----------------------------------------------------------- */
+.form-label span{display:block;margin-bottom:.25rem;font-size:.875rem}
+.form-input{width:100%;background:rgba(38,38,38,.6);backdrop-filter:blur(8px);border-radius:.5rem;padding:.5rem 1rem;line-height:1.4;border:1px solid rgba(100,100,100,.4);outline:none}
+.form-input:focus{border-color:var(--accent)}
+.form-grid{display:grid;gap:1.5rem}
+
+/* Mensajes */
+.msg-success{background:rgba(16,185,129,.2);color:#6ee7b7;padding:.75rem 1rem;border-radius:.5rem}
+.msg-error  {background:rgba(244,63,94,.2); color:#fda4af;padding:.75rem 1rem;border-radius:.5rem}
+
+/* Footer ---------------------------------------------------------------- */
+.footer-title{font-weight:600;color:#fff;margin-bottom:.5rem}
+.footer-link:hover{color:#fff}
+.footer-social:hover{color:var(--accent)}
+
