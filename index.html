@@ -1,413 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>rAio Studios — Publicidad Audiovisual IA</title>
-
-  <!-- Tailwind + familias tipográficas ------------------------------------------->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors:{ accent:'#ffab00' },
-          fontFamily:{
-            display:['Monument','system-ui','sans-serif'],
-            body   :['OpenSauce','Inter','sans-serif']
-          }
-        }
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page con Video de Fondo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Estilos y componentes propios --------------------------------------------->
-  <link rel="stylesheet" href="css/site.css">
+    body {
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-  <!-- Swiper 8 (carruseles) ----------------------------------------------------->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  <!-- AOS 3 (animaciones al hacer scroll) --------------------------------------->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .contenido {
+      z-index: 1;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+    }
+
+    .contenido h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .contenido p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .boton {
+      padding: 0.8rem 1.5rem;
+      background-color: #ff6a00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .boton:hover {
+      background-color: #e55b00;
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-black text-white font-body scroll-smooth">
-
-<!-- ╔════════════════ NAV ═══════════════════════════════════════════════════╗ -->
-<header class="sticky top-0 z-50 backdrop-blur-md bg-black/70">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-
-    <!-- Logo animado -->
-    <img src="images/logo_white.png" alt="Raio Studios"
-         class="h-24 logo-breath">
-
-    <!-- ▸ Desktop nav -->
-    <nav id="navLinks" class="hidden sm:flex items-center gap-6 font-medium">
-      <a href="#nosotros" class="hover:text-accent">Nosotros</a>
-
-      <!-- Dropdown -->
-      <div class="group relative">
-        <button class="flex items-center gap-1 hover:text-accent">
-          Qué hacemos
-          <svg class="w-4 h-4 transition-transform group-hover:rotate-180"
-               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <ul class="submenu">
-          <li><a href="#radio">Radios IA</a></li>
-          <li><a href="#unico">Contenido Sintético</a></li>
-          <li><a href="#visual">Contenido Visual</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-
-      <a href="#contacto" class="hover:text-accent">Contacto</a>
-    </nav>
-
-    <!-- ▸ Burger -->
-    <button id="burger" class="sm:hidden text-white">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
-           stroke="currentColor"><path stroke-linecap="round"
-           stroke-linejoin="round" stroke-width="2"
-           d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </div>
-
-  <!-- ▸ Mobile menu -->
-  <div id="mobileMenu"
-       class="sm:hidden hidden px-4 pb-6 space-y-3 bg-black/95 backdrop-blur">
-    <a href="#nosotros" class="block py-2 hover:text-accent">Nosotros</a>
-    <a href="#radio"    class="block py-2 hover:text-accent">Radios IA</a>
-    <a href="#unico"    class="block py-2 hover:text-accent">Contenido Sintético</a>
-    <a href="#visual"   class="block py-2 hover:text-accent">Contenido Visual</a>
-    <a href="#contacto" class="block py-2 hover:text-accent">Contacto</a>
-  </div>
-</header>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ HERO ═══════════════════════════════════════════════════╗ -->
-<section id="hero" class="hero">
-  <div id="pattern"></div><div class="wave"></div><div id="eqWrap"></div>
-
-  <div class="relative z-10 mt-8 px-4" data-aos="fade-up">
-    <h1 class="font-display text-4xl lg:text-5xl font-bold leading-tight drop-shadow">
-      Publicidad audiovisual<br><span class="text-accent">impulsada por IA</span>
-    </h1>
-    <p class="mt-4 max-w-lg mx-auto opacity-90">
-      Contenidos únicos, rápidos y altamente efectivos para tu marca.
-    </p>
-    <a href="#contacto" class="btn-primary mt-6">¡Hablemos!</a>
-  </div>
-</section>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ NOSOTROS ═══════════════════════════════════════════════╗ -->
-<section id="nosotros" class="section-dark" data-aos="fade-up">
-
-  <!-- Grid + blobs deco -->
-  <div class="bg-grid"></div>
-  <div class="blob blob-top"></div><div class="blob blob-bot"></div>
-
-  <!-- logo sello -->
-  <img src="images/logo_white.png" alt="Raio Studios"
-       class="seal-logo">
-
-  <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
-
-    <!-- Texto -->
-    <div>
-      <h2 class="text-4xl font-display font-bold mb-6">
-        Nos<span class="text-accent">o</span>tros
-      </h2>
-
-      <p class="mb-4 text-lg leading-relaxed">
-        Somos un laboratorio creativo que combina
-        <span class="text-accent font-semibold">inteligencia artificial</span>
-        con talento humano para procesos de imagen y sonido.
-      </p>
-
-      <p class="mb-6 text-lg leading-relaxed">
-        Nuestra misión es ayudarte a conectar emocionalmente con tu audiencia
-        mediante contenidos personalizados, rápidos y altamente efectivos.
-      </p>
-
-      <!-- ¿Qué hacemos? -->
-      <div class="mt-8 space-y-3">
-        <h3 class="text-xl font-semibold text-accent mb-2">¿Qué hacemos?</h3>
-        <ul class="space-y-2 text-lg leading-relaxed">
-          <li><a href="#radio"   class="what-link"><span class="caret"></span>Radio IA</a></li>
-          <li><a href="#unico"   class="what-link"><span class="caret"></span>Contenido Único</a></li>
-          <li><a href="#visual"  class="what-link"><span class="caret"></span>Contenido Visual</a></li>
-          <li><a href="#contacto" class="what-link"><span class="caret"></span>Distribución</a></li>
-        </ul>
-      </div>
+  <!-- Sección 1 -->
+  <section id="inicio">
+    <video autoplay muted loop playsinline>
+      <source src="videos/ANIMACIONES.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="contenido">
+      <h1>Bienvenido</h1>
+      <p>Esta es la sección de inicio con video de fondo.</p>
+      <a href="#seccion2" class="boton">Siguiente</a>
     </div>
+  </section>
 
-    <!-- Mock-ups -->
-    <div class="relative flex justify-center lg:justify-end">
-      <!-- Navegador -->
-      <div class="browser-mock">
-        <div class="browser-bar">
-          <span class="dot bg-red-500"></span>
-          <span class="dot bg-yellow-500"></span>
-          <span class="dot bg-green-500"></span>
-        </div>
-        <img src="images/mac-radio.png" class="browser-img" alt="Proyecto Mac Radio">
-      </div>
-
-      <!-- Teléfono -->
-      <div class="phone-mock">
-        <div class="phone-notch"></div>
-        <div class="flex-1 flex flex-col gap-2 p-2">
-          <img src="images/chile-sin-perdon.png" class="phone-img" alt="">
-          <img src="images/podcast-nino.png"      class="phone-img" alt="">
-        </div>
-      </div>
+  <!-- Sección 2 -->
+  <section id="seccion2">
+    <video autoplay muted loop playsinline>
+      <source src="videos/DESARROLLO_DE_PRODUCTOS.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="contenido">
+      <h1>Nuestros Servicios</h1>
+      <p>Te mostramos lo que ofrecemos con estilo.</p>
+      <a href="#seccion3" class="boton">Ver más</a>
     </div>
-  </div>
-</section>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
+  </section>
 
-
-<!-- ╔════════════════ RADIO IA ═══════════════════════════════════════════════╗ -->
-<section id="radio" class="section-dark" data-aos="fade-up">
-
-  <div class="diag-bg"></div>
-  <img src="images/logo_white.png" class="seal-logo" alt="Raio Studios">
-
-  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12">
-
-    <!-- Texto -->
-    <div class="flex-1 space-y-6">
-      <h2 class="text-3xl sm:text-4xl font-display font-bold leading-snug">
-        Radios&nbsp;<span class="text-accent">IA</span><br>
-        SoundTrack y Playlists&nbsp;únicas
-      </h2>
-
-      <p>Creamos bandas sonoras personalizadas para cada temporada, estado de
-        ánimo o campaña. Nuestras herramientas de IA garantizan rapidez,
-        exclusividad y calidad — <strong>tu marca se convierte en dueña de su propia música.</strong>
-      </p>
-
-      <ul class="space-y-2 list-disc list-inside">
-        <li>Bandas sonoras exclusivas para tus espacios o campañas.</li>
-        <li>Canciones especiales por temporadas.</li>
-        <li>50+ estilos y géneros musicales.</li>
-        <li>Automatización, mezcla y distribución (guiones, pisadores, SFX…).</li>
-        <li>Players de audio en todos los formatos.</li>
-        <li>Cada canción es <em>única e irrepetible</em>.</li>
-      </ul>
-
-      <a href="https://www.youtube.com/@raio.studios" target="_blank"
-         class="btn-primary inline-block mt-6">Visitar nuestro canal</a>
+  <!-- Sección 3 -->
+  <section id="seccion3">
+    <video autoplay muted loop playsinline>
+      <source src="videos/METAHUMANOS.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="contenido">
+      <h1>Contacto</h1>
+      <p>¡Estamos listos para ayudarte!</p>
+      <a href="#inicio" class="boton">Volver al inicio</a>
     </div>
+  </section>
 
-    <!-- Vídeos -->
-    <div class="w-full max-w-xl mx-auto space-y-8">
-      <div class="ratio-16by9 rounded-lg overflow-hidden shadow-lg">
-        <iframe src="https://www.youtube.com/embed/Vc6BSRtDFXI?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
-                title="Demo Radio IA 1" allowfullscreen></iframe>
-      </div>
-      <div class="ratio-16by9 rounded-lg overflow-hidden shadow-lg">
-        <iframe src="https://www.youtube.com/embed/loAZTCoRoFE?start=0&end=60&rel=0&modestbranding=1&controls=1&playsinline=1"
-                title="Demo Radio IA 2" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ CONTENIDO SINTÉTICO ════════════════════════════════════╗ -->
-<section id="unico" class="section-dark" data-aos="fade-up">
-  <!-- blobs deco -->
-  <div class="blob-anim"></div>
-  <img src="images/logo_white.png" class="seal-logo" alt="Raio Studios">
-
-  <div class="max-w-7xl mx-auto px-6 space-y-20">
-
-    <!-- Intro -->
-    <div class="max-w-3xl space-y-6">
-      <h2 class="text-3xl sm:text-4xl font-display font-bold leading-snug">
-        Contenido&nbsp;<span class="text-accent">Sintético</span><br>
-        Voces con identidad&nbsp;y multilenguaje
-      </h2>
-
-      <p class="badge">¡Tu nueva voz habla en más de 15 idiomas!</p>
-
-      <p>Voces adaptadas a tus campañas y espacios. Cada voz es tuya — grabaciones ilimitadas y libres de derechos.</p>
-      <p>Creamos contenidos con IA listos para cualquier formato: desde frases hasta producciones completas.</p>
-
-      <ul class="list-disc list-inside space-y-2">
-        <li>Voces sintéticas a medida.</li>
-        <li>Creación rápida de locutores propios.</li>
-        <li>Propiedad total de voces y locuciones.</li>
-      </ul>
-
-      <!-- Banderas -->
-      <div class="mt-6 flex flex-wrap gap-3">
-        <img src="https://flagcdn.com/32x24/es.png"  title="Español"  class="flag">
-        <img src="https://flagcdn.com/32x24/gb.png"  title="Inglés"   class="flag">
-        <img src="https://flagcdn.com/32x24/br.png"  title="Portugués" class="flag">
-        <img src="https://flagcdn.com/32x24/cn.png"  title="Chino"    class="flag">
-        <img src="https://flagcdn.com/32x24/ru.png"  title="Ruso"     class="flag">
-        <img src="https://flagcdn.com/32x24/it.png"  title="Italiano" class="flag">
-        <img src="https://flagcdn.com/32x24/fr.png"  title="Francés"  class="flag">
-      </div>
-    </div>
-
-    <!-- A · Contenido Sintético -->
-    <div class="card space-y-6">
-      <h3 class="card-title text-accent">Contenido Sintético</h3>
-      <div class="swiper grupoA"><div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/aSMKvvnlSxc?rel=0&playsinline=1" title="A1" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/oMrwlhNVtXU?rel=0&playsinline=1" title="A2" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/bYX6xksWE3M?rel=0&playsinline=1" title="A3" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/VafelsSj9ls?rel=0&playsinline=1" title="A4" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/KtXmD6-P01c?rel=0&playsinline=1" title="A5" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/xWpZwNxKpJ0?rel=0&playsinline=1" title="A6" allowfullscreen></iframe></div></div>
-      </div><div class="swiper-pagination mt-4"></div></div>
-    </div>
-
-    <!-- B · Contenido Personalizado -->
-    <div class="card space-y-6">
-      <h3 class="card-title text-accent">Contenido Personalizado</h3>
-      <div class="swiper grupoB"><div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/-VijR0xvqDE?rel=0&playsinline=1" title="B1" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/7UDc-2I5GoE?rel=0&playsinline=1" title="B2" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/wIfxF_kIv6I?rel=0&playsinline=1" title="B3" allowfullscreen></iframe></div></div>
-      </div><div class="swiper-pagination mt-4"></div></div>
-    </div>
-
-    <!-- C · Voces, Doblajes & Lipsync -->
-    <div class="card space-y-6">
-      <h3 class="card-title text-accent">Voces, Doblajes & Lipsync</h3>
-      <div class="swiper grupoC"><div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/2kNAHpWlEEQ?rel=0&playsinline=1" title="C1" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/_p9CNTiFxHQ?rel=0&playsinline=1" title="C2" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/stQzaEkA1v0?rel=0&playsinline=1" title="C3" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/h5k2mrG0fLE?rel=0&playsinline=1" title="C4" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/KuCUw-NypLM?rel=0&playsinline=1" title="C5" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/-h4RDNpG0vU?rel=0&playsinline=1" title="C6" allowfullscreen></iframe></div></div>
-      </div><div class="swiper-pagination mt-4"></div></div>
-    </div>
-
-    <!-- D · Contenido Visual -->
-    <div class="card space-y-6" id="visual">
-      <h3 class="card-title text-accent">Contenido Visual</h3>
-      <p>Gráficas IA únicas, adaptadas a temporadas y eventos. Contenido perfecto para pantallas de paso o activaciones a gran escala.</p>
-      <div class="ratio-16by9 rounded-lg overflow-hidden shadow-lg max-w-3xl mx-auto">
-        <iframe src="https://www.youtube.com/embed/RabLUaJeFqI?rel=0&playsinline=1" title="Visual demo" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- E · Prank Content -->
-    <div class="card space-y-6">
-      <h3 class="card-title text-accent">Prank Content</h3>
-      <div class="swiper grupoE"><div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/qjNGaUQKFp0?rel=0&playsinline=1" title="E1" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/RqM4u7dV88A?rel=0&playsinline=1" title="E2" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/4-7U05qrCQs?rel=0&playsinline=1" title="E3" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/joycqtqNpko?rel=0&playsinline=1" title="E4" allowfullscreen></iframe></div></div>
-        <div class="swiper-slide"><div class="ratio-16by9"><iframe src="https://www.youtube.com/embed/hIOkH9_bndk?rel=0&playsinline=1" title="E5" allowfullscreen></iframe></div></div>
-      </div><div class="swiper-pagination mt-4"></div></div>
-    </div>
-
-  </div><!-- /max-w -->
-</section>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ CONTACTO ═══════════════════════════════════════════════╗ -->
-<section id="contacto" class="section-black" data-aos="fade-up">
-  <div class="noise-bg"></div>
-
-  <div class="max-w-4xl mx-auto px-6 space-y-10 text-center relative z-10">
-    <h2 class="text-3xl sm:text-4xl font-display font-bold">
-      ¡Hablemos <span class="text-accent">hoy</span>!
-    </h2>
-    <p class="max-w-2xl mx-auto">
-      Cuéntanos tu idea y en menos de 24 h tendrás una respuesta de nuestro equipo.
-    </p>
-
-    <!-- mensajes php -->
-    <?php if(isset($_GET['ok'])): ?>
-      <div class="msg-success">¡Mensaje enviado correctamente!</div>
-    <?php elseif(isset($_GET['error'])): ?>
-      <div class="msg-error">Error al enviar. Intenta otra vez.</div>
-    <?php endif; ?>
-
-    <!-- Form -->
-    <form action="contact.php" method="POST" class="form-grid">
-      <div class="grid sm:grid-cols-2 gap-6">
-        <label class="form-label">Nombre
-          <input name="name" required class="form-input">
-        </label>
-        <label class="form-label">Correo electrónico
-          <input name="email" type="email" required class="form-input">
-        </label>
-      </div>
-
-      <label class="form-label block">Mensaje
-        <textarea name="message" rows="5" required class="form-input"></textarea>
-      </label>
-
-      <button class="btn-primary mx-auto">Enviar mensaje</button>
-    </form>
-  </div>
-</section>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ FOOTER ════════════════════════════════════════════════╗ -->
-<footer class="bg-neutral-950 text-neutral-400 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-
-    <div class="space-y-4">
-      <img src="images/logo_white.png" alt="Raio Studios" class="h-12">
-      <p class="max-w-xs text-sm">
-        Publicidad audiovisual impulsada por IA.<br>
-        Contenidos únicos y rápidos para tu marca.
-      </p>
-    </div>
-
-    <nav class="space-y-2 text-sm">
-      <h3 class="footer-title">Secciones</h3>
-      <ul class="space-y-1">
-        <li><a href="#nosotros" class="footer-link">Nosotros</a></li>
-        <li><a href="#radio"    class="footer-link">Radio IA</a></li>
-        <li><a href="#unico"    class="footer-link">Contenido Sintético</a></li>
-        <li><a href="#contacto" class="footer-link">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <div class="space-y-2 text-sm">
-      <h3 class="footer-title">Síguenos</h3>
-      <div class="flex gap-4">
-        <a href="https://www.instagram.com/raio.studios" target="_blank" class="footer-social" aria-label="Instagram">
-          <svg class="icon-24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm12 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12zm-6 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@raio.studios" target="_blank" class="footer-social" aria-label="YouTube">
-          <svg class="icon-24" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4-.6-5a3 3 0 0 0-2-2C18 4 12 4 12 4s-6 0-7.4.9a3 3 0 0 0-2 2c-.4 1-.6 2.5-.6 5s.2 4 .6 5a3 3 0 0 0 2 2C6 20 12 20 12 20s6 0 7.4-.9a3 3 0 0 0 2-2c.4-1 .6-2.5.6-5z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="border-t border-neutral-700 mt-10 pt-6 text-xs text-center">
-    © 2025 Raio Studios. Todos los derechos reservados.
-  </div>
-</footer>
-<!-- ╚═════════════════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- ╔════════════════ SCRIPTS ═══════════════════════════════════════════════╗ -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
