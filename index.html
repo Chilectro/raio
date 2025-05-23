@@ -3,111 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page con Video de Fondo</title>
+  <title>Raio Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css" />
   <style>
-    * {
+    body {
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      overflow-x: hidden;
     }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      scroll-behavior: smooth;
+    .animate-bounce {
+      animation: bounce 2s infinite;
     }
-
-    section {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      color: #fff;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
-
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .contenido {
-      z-index: 1;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-    }
-
-    .contenido h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .contenido p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .boton {
-      padding: 0.8rem 1.5rem;
-      background-color: #ff6a00;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .boton:hover {
-      background-color: #e55b00;
+    .hero-headline {
+      font-family: 'Archivo Black', sans-serif;
     }
   </style>
 </head>
-<body>
-
-  <!-- Sección 1 -->
-  <section id="inicio">
-    <video autoplay muted loop playsinline>
+<body class="bg-black text-white">
+  <section id="hero" class="relative w-full h-screen overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="videos/ANIMACIONES.mp4" type="video/mp4">
       Tu navegador no soporta video HTML5.
     </video>
-    <div class="contenido">
-      <h1>Bienvenido</h1>
-      <p>Esta es la sección de inicio con video de fondo.</p>
-      <a href="#seccion2" class="boton">Siguiente</a>
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+    <!-- Logo -->
+    <div class="absolute top-10 left-1/2 transform -translate-x-1/2 z-20">
+      <img src="images/logo_white.png" alt="RAIO studios" class="w-40 md:w-56">
+    </div>
+
+    <!-- Idiomas -->
+    <div class="absolute top-10 right-10 flex gap-3 z-20">
+      <span class="fi fi-cl w-8 h-8 rounded-full overflow-hidden border border-white"></span>
+      <span class="fi fi-ar w-8 h-8 rounded-full overflow-hidden border border-white"></span>
+    </div>
+
+    <!-- Contenedores en columna para móviles y fila para escritorio -->
+    <div class="absolute bottom-10 left-0 right-0 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end px-6 z-20 gap-6">
+
+      <!-- Lista lateral -->
+      <div class="w-full md:w-1/3 px-6 py-6 border border-white/40 backdrop-blur-md rounded-xl text-left bg-black/40 text-base md:text-lg leading-relaxed max-w-sm">
+        <p class="mb-2">🎨 Diseño visual y sonoro</p>
+        <p class="mb-2">🤖 Contenido IA</p>
+        <p class="mb-2">🎬 Animatics IA</p>
+        <p class="mb-2">🎙️ Podcast sintéticos</p>
+        <p>📻 Radios sintéticas</p>
+      </div>
+
+      <!-- Frase principal protagonista -->
+      <div class="w-full md:w-1/2 px-8 py-8 border rounded-2xl border-white/40 backdrop-blur-md text-center bg-black/30 max-w-xl">
+        <p class="text-2xl md:text-3xl mb-2">ACÁ NACEN TUS</p>
+        <p class="text-4xl md:text-6xl font-bold text-white hero-headline leading-tight">NUEVOS</p>
+        <p class="text-2xl md:text-3xl mt-2">CONTENIDOS</p>
+        <div class="mt-4 animate-bounce text-white text-2xl">↓</div>
+      </div>
     </div>
   </section>
 
-  <!-- Sección 2 -->
-  <section id="seccion2">
-    <video autoplay muted loop playsinline>
+<section class="bg-gray-100 py-20 px-6 text-gray-900">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
+      <!-- Columna izquierda -->
+      <div class="md:w-1/2 space-y-6 text-center md:text-left">
+        <img src="images/logo_black.png" alt="RAIO Studios" class="w-36 mx-auto md:mx-0">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+          Hacemos contenido con <br> herramientas del futuro
+        </h2>
+        <p class="text-base md:text-lg">
+          Somos un estudio creativo que utiliza inteligencia artificial para revolucionar el diseño sonoro y visual de los medios y publicidad.
+        </p>
+        <p class="text-base md:text-lg">
+          Nuestra misión es transformar cada experiencia en un momento inolvidable, integrando IA en todos los procesos.
+        </p>
+      </div>
+
+      <!-- Columna derecha con video -->
+      <div class="md:w-1/2 w-full">
+        <video controls class="rounded-2xl shadow-lg w-full object-cover">
+          <source src="videos/DESARROLLO_DE_PRODUCTOS.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+    </div>
+
+    <!-- Logos de marcas -->
+    <div class="max-w-6xl mx-auto mt-16 flex flex-wrap justify-center items-center gap-10">
+      <img src="images/one.png" alt="Marca 1" class="h-8 md:h-10">
+      <img src="images/two.png" alt="Marca 2" class="h-8 md:h-10">
+      <img src="images/three.png" alt="Marca 3" class="h-8 md:h-10">
+      <img src="images/four.png" alt="Marca 4" class="h-8 md:h-10">
+    </div>
+  </section>
+
+  <!-- Sección DISEÑO VISUAL -->
+  <section class="relative w-full h-auto overflow-hidden bg-black text-white">
+    <!-- Video de fondo -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="videos/DESARROLLO_DE_PRODUCTOS.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
     </video>
-    <div class="contenido">
-      <h1>Nuestros Servicios</h1>
-      <p>Te mostramos lo que ofrecemos con estilo.</p>
-      <a href="#seccion3" class="boton">Ver más</a>
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+    <!-- Contenido -->
+    <div class="relative z-20 px-6 py-20 max-w-7xl mx-auto">
+      <!-- Logo + texto -->
+      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+        <img src="images/logo_white.png" alt="Logo" class="w-40 md:w-56 mb-6 md:mb-0">
+        <div class="text-center md:text-right">
+          <h2 class="text-3xl md:text-5xl font-bold">Diseño Visual</h2>
+          <p class="text-lg md:text-xl">Spots, animatics, trailers, videoclips, bumpers.</p>
+        </div>
+      </div>
+
+      <!-- Carrusel adaptativo -->
+      <div class="relative overflow-hidden">
+        <div id="carouselTrack" class="flex gap-6 transition-transform duration-500 ease-in-out">
+          <!-- Slide 1 -->
+          <div class="min-w-[300px] md:min-w-[400px] max-w-full bg-black/80 rounded-xl p-4">
+            <p class="text-sm mb-2">2025<br><span class="font-bold">The Weeknd - Don Carter</span></p>
+            <video controls class="rounded-lg w-full h-auto">
+              <source src="videos/METAHUMANOS.mp4" type="video/mp4">
+            </video>
+          </div>
+          <!-- Slide 2 -->
+          <div class="min-w-[300px] md:min-w-[400px] max-w-full bg-black/80 rounded-xl p-4">
+            <p class="text-sm mb-2">2024<br><span class="font-bold">Multiverso Pancho Melo</span></p>
+            <video controls class="rounded-lg w-full h-auto">
+              <source src="videos/ANIMACIONES.mp4" type="video/mp4">
+            </video>
+          </div>
+          <!-- Slide 3 -->
+          <div class="min-w-[300px] md:min-w-[400px] max-w-full bg-black/80 rounded-xl p-4">
+            <p class="text-sm mb-2">2025<br><span class="font-bold">Mulet - Corazón Valiente</span></p>
+            <video controls class="rounded-lg w-full h-auto">
+              <source src="videos/METAHUMANOS.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Botones debajo del carrusel -->
+        <div class="mt-6 flex justify-center gap-4">
+          <button onclick="moveCarousel(-1)" class="bg-white text-black px-4 py-2 rounded-full shadow">❮</button>
+          <button onclick="moveCarousel(1)" class="bg-white text-black px-4 py-2 rounded-full shadow">❯</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Sección 3 -->
-  <section id="seccion3">
-    <video autoplay muted loop playsinline>
-      <source src="videos/METAHUMANOS.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
-    <div class="contenido">
-      <h1>Contacto</h1>
-      <p>¡Estamos listos para ayudarte!</p>
-      <a href="#inicio" class="boton">Volver al inicio</a>
-    </div>
-  </section>
+  <script>
+    let position = 0;
+    const track = document.getElementById('carouselTrack');
+    const slideWidth = 340;
+
+    function moveCarousel(direction) {
+      const totalSlides = track.children.length;
+      const maxScroll = (totalSlides - 1) * slideWidth;
+      position += direction * slideWidth;
+      position = Math.max(0, Math.min(position, maxScroll));
+      track.style.transform = `translateX(-${position}px)`;
+    }
+  </script>
 
 </body>
 </html>
